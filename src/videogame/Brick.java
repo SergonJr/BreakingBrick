@@ -7,8 +7,7 @@ import java.awt.Graphics;
  *
  * @author Sergon et Noe
  */
-public class Brick extends Item
-{
+public class Brick extends Item{
 
     private Game game;
     private int speed = 5;
@@ -29,6 +28,5 @@ public class Brick extends Item
     @Override
     public void tick()
     {
-        
     }
 }
