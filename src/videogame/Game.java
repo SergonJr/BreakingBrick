@@ -148,15 +148,6 @@ public class Game implements Runnable
             Brick brick = (Brick) bricks.get(i);
             if (ball.intersects(brick))
             {
-                if (ball.getX() + ball.getWidth()/2 > brick.getX() + brick.getWidth()/2)
-                {
-                    ball.setSpeedX(5 + ((ball.getX() + (ball.getWidth()/2)) - (brick.getX() + (brick.getWidth()/2))) / 10);
-                }
-                else
-                {
-                    ball.setSpeedX(-5 + ((ball.getX() + (ball.getWidth()/2)) - (brick.getX() + (brick.getWidth()/2))) / 10);                
-                }
-                System.out.println(ball.getSpeedX());
                 bricks.remove(brick);
                 ball.setSpeedY(ball.getSpeedY() * -1);
                 i--;
@@ -239,7 +230,18 @@ public class Game implements Runnable
             }           
         }
     }
+
+    public Ball getBall()
+    {
+        return ball;
+    }
+
+    public void setBall(Ball ball)
+    {
+        this.ball = ball;
+    }
   
+    
   /**
      * To get the width of the game window
      * @return an <code>int</code> value with the width
@@ -277,4 +279,9 @@ public class Game implements Runnable
     {
         this.pause = pause;
     }
+
+    public Player getPlayer()
+    {
+        return player;
+    }        
 }

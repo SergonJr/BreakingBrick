@@ -17,25 +17,31 @@ public class Ball extends Item{
     private Game game;
     private int speedX;         //  speed x
     private int speedY;         //  speed y
+    private int attackP;        //  attack points
     
-    public Ball(int x, int y, int width, int height, int speedX, int speedY, Game game) {
+    public Ball(int x, int y, int width, int height, int speedX, int speedY, Game game) 
+    {
         super(x, y, width, height);
         this.game = game;
         this.speedX = speedX;
         this.speedY = speedY;
+        attackP = 1;
     }
 
     @Override
-    public void tick() {
+    public void tick() 
+    {
         // moving player depenting on keys
         setX(getX() + getSpeedX());
         setY(getY() + getSpeedY());
         // collision with walls
-        if (getX() + 20 >= game.getWidth()) {
+        if (getX() + 20 >= game.getWidth()) 
+        {
             setX(game.getWidth() - 20);
             setSpeedX(getSpeedX() * -1);
         }
-        else if (getX() <= 0) {
+        else if (getX() <= 0) 
+        {
             setX(0);
             setSpeedX(getSpeedX() * -1);
         }  
@@ -54,6 +60,16 @@ public class Ball extends Item{
         g.fillOval(getX(), getY(), getWidth(), getHeight());
     }
 
+    public int getAttackP()
+    {
+        return attackP;
+    }
+
+    public void setAttackP(int attackP)
+    {
+        this.attackP = attackP;
+    }
+    
     public int getSpeedX()
     {
         return speedX;
